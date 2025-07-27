@@ -1,5 +1,5 @@
 {
-  "gitSyncId": "6885fee7144cb85522ef09cd_d235e0ae-8405-4f87-8c77-9998b3104b87",
+  "gitSyncId": "6885fee7144cb85522ef09cd_956644fc-7f5c-418c-8c74-465623282597",
   "id": "Technology_add_technology",
   "pluginId": "mongo-plugin",
   "pluginType": "DB",
@@ -61,12 +61,12 @@
         },
         "insert": {
           "documents": {
-            "data": "[\n\t{\n\t\t\"tech_name\":{{tech_name.text}},\n\t\t\"tag\":{{tech_tags.selectedOptionValues}},\n\t\t\"description\":{{tech_descp.text}}\n\t}\n]"
+            "data": "[{\n\t\"tech_name\":{{tech_name.text}},\n\t\"tags\":{{tech_tags.selectedOptionValues}},\n\t\"description\":{{tech_descp.text}},\n\t\"active\":{{active_flag.isSwitchedOn}}\n}]"
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"technologies\",\n  \"documents\": [\n\t{\n\t\t\"tech_name\":{{tech_name.text}},\n\t\t\"tag\":{{tech_tags.selectedOptionValues}},\n\t\t\"description\":{{tech_descp.text}}\n\t}\n]\n}\n",
+            "data": "{\n  \"insert\": \"technologies\",\n  \"documents\": [{\n\t\"tech_name\":{{tech_name.text}},\n\t\"tags\":{{tech_tags.selectedOptionValues}},\n\t\"description\":{{tech_descp.text}},\n\t\"active\":{{active_flag.isSwitchedOn}}\n}]\n}\n",
             "status": "SUCCESS"
           }
         },

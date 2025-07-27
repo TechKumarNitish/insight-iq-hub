@@ -1,0 +1,6 @@
+{
+	"tech_name":{{tech_name.text}},
+	"tag":{{tech_tags.selectedOptionValues}},
+	"description":{{tech_descp.text}},
+	"active":false
+}

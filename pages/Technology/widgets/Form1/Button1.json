@@ -31,7 +31,7 @@
   "mobileRightColumn": 62,
   "mobileTopRow": 33,
   "needsErrorInfo": false,
-  "onClick": "{{add_technology.run().then(() => {\n  showAlert('Added successfully!', 'success');\n  get_technology.run();\n}).catch(() => {\n  showAlert('Unable to add!', 'error');\n});}}",
+  "onClick": "{{add_technology.run().then(() => {\n  showAlert('Added successfully!', 'success');\n  ManageTech.getTech();\n}).catch(() => {\n  showAlert('Unable to add!', 'error');\n});}}",
   "originalBottomRow": 34,
   "originalTopRow": 30,
   "parentId": "0j9fkg05hs",

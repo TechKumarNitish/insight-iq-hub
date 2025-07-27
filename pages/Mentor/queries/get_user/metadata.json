@@ -101,7 +101,7 @@
     "dynamicBindingPathList": [],
     "name": "get_user",
     "pageId": "Mentor",
-    "runBehaviour": "AUTOMATIC",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

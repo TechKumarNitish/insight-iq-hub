@@ -61,12 +61,12 @@
         },
         "insert": {
           "documents": {
-            "data": "[\n\t{\n\t\t\"name\":{{tag_name.text}}\n\t}\n]"
+            "data": "[\n\t{\n\t\t\"tag_name\":{{tag_name.text}}\n\t}\n]"
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"tags\",\n  \"documents\": [\n\t{\n\t\t\"name\":{{tag_name.text}}\n\t}\n]\n}\n",
+            "data": "{\n  \"insert\": \"tags\",\n  \"documents\": [\n\t{\n\t\t\"tag_name\":{{tag_name.text}}\n\t}\n]\n}\n",
             "status": "SUCCESS"
           }
         },

@@ -1,8 +1,8 @@
 {
   "gitSyncId": "6885fee7144cb85522ef09cd_f6fe91a8-d9e4-4b09-ac8f-6b8bcab1cff6",
-  "id": "User_JSObject1",
+  "id": "User_ManageUser",
   "unpublishedCollection": {
-    "name": "JSObject1",
+    "name": "ManageUser",
     "pageId": "User",
     "pluginId": "js-plugin",
     "pluginType": "JS",

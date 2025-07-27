@@ -31,7 +31,7 @@
   "mobileRightColumn": 62,
   "mobileTopRow": 33,
   "needsErrorInfo": false,
-  "onClick": "{{create_user.run().then(() => {\n  showAlert('Added successfully!', 'success');\n  get_user.run();\n}).catch(() => {\n  showAlert('Unable to add user!', 'error');\n});}}",
+  "onClick": "{{create_user.run().then(() => {\n  showAlert('Added successfully!', 'success');\n  ManageUser.getUserData();\n}).catch(() => {\n  showAlert('Unable to add user!', 'error');\n});}}",
   "parentId": "u6lzbt2rox",
   "placement": "CENTER",
   "recaptchaType": "V3",

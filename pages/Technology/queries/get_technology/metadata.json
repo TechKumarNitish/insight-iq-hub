@@ -98,7 +98,7 @@
     "dynamicBindingPathList": [],
     "name": "get_technology",
     "pageId": "Technology",
-    "runBehaviour": "AUTOMATIC",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

@@ -15,11 +15,14 @@
             "data": "10"
           }
         },
+        "body": {
+          "data": "{\n  \"aggregate\": \"users\",\n  \"pipeline\": [\n    {\n      \"$match\": {\n        \"accountType\": \"Mentor\"\n      }\n    },\n    {\n      \"$lookup\": {\n        \"from\": \"profiles\",\n        \"localField\": \"additionalDetails\",\n        \"foreignField\": \"_id\",\n        \"as\": \"profile\"\n      }\n    },\n    {\n      \"$unwind\": {\n        \"path\": \"$profile\",\n        \"preserveNullAndEmptyArrays\": true\n      }\n    }\n  ],\n  \"cursor\": {}\n}\n"
+        },
         "collection": {
           "data": "users"
         },
         "command": {
-          "data": "FIND"
+          "data": "RAW"
         },
         "count": {
           "query": {
@@ -98,7 +101,7 @@
     "dynamicBindingPathList": [],
     "name": "get_user",
     "pageId": "User",
-    "runBehaviour": "AUTOMATIC",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }
