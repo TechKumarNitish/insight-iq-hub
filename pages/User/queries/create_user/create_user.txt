@@ -1,0 +1,6 @@
+{
+	"fullName":{{user_name.text}},
+	"email":{{user_email.text}},
+	"password":{{user_password.text}},
+	"accountType":{{user_role.selectedOptionValue}}
+}
