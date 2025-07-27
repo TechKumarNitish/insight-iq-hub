@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "6885fee7144cb85522ef09cd_0ec77c8f-6b60-4b5c-acfd-4bf183b71d91",
-  "id": "Mentor_add_mentor",
+  "gitSyncId": "6885fee7144cb85522ef09cd_f8b7276d-24f8-4ea6-9227-555dbe46e533",
+  "id": "User_delete_user",
   "pluginId": "mongo-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -16,10 +16,10 @@
           }
         },
         "collection": {
-          "data": ""
+          "data": "users"
         },
         "command": {
-          "data": "INSERT"
+          "data": "DELETE"
         },
         "count": {
           "query": {
@@ -31,7 +31,7 @@
             "data": "SINGLE"
           },
           "query": {
-            "data": ""
+            "data": "{\"_id\":{{Table1.triggeredRow._id}}}"
           }
         },
         "distinct": {
@@ -61,12 +61,12 @@
         },
         "insert": {
           "documents": {
-            "data": "[\n\t{\n\t\t\"userId\":{{mentor_id.selectedOptionValue}},\n\t\t\"areaOfInterest\":{{area_of_expertise.selectedOptionValues}}\n\t\t\"description\":{{mentor_descp.text}}\n\t}\n]"
+            "data": ""
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"insert\": \"\",\n  \"documents\": [\n\t{\n\t\t\"userId\":{{mentor_id.selectedOptionValue}},\n\t\t\"areaOfInterest\":{{area_of_expertise.selectedOptionValues}}\n\t\t\"description\":{{mentor_descp.text}}\n\t}\n]\n}\n",
+            "data": "{\n  \"delete\": \"users\",\n  \"deletes\": [{\n    \"q\": {\"_id\":{{Table1.triggeredRow._id}}},\n    \"limit\": 1,\n  }]\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -97,11 +97,11 @@
     },
     "dynamicBindingPathList": [
       {
-        "key": "formData.insert.documents.data"
+        "key": "formData.delete.query.data"
       }
     ],
-    "name": "add_mentor",
-    "pageId": "Mentor",
+    "name": "delete_user",
+    "pageId": "User",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }

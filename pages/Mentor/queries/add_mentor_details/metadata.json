@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "6885fee7144cb85522ef09cd_316568e2-64d0-4491-93e4-c9b609b78fed",
-  "id": "Mentor_get_user",
+  "gitSyncId": "6885fee7144cb85522ef09cd_0ec77c8f-6b60-4b5c-acfd-4bf183b71d91",
+  "id": "Mentor_add_mentor_details",
   "pluginId": "mongo-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -9,20 +9,17 @@
       "formData": {
         "aggregate": {
           "arrayPipelines": {
-            "data": "[{\"$unwind\": {\n        \"path\": \"$mentorDetails\",\n        \"preserveNullAndEmptyArrays\": true\n      }\n}\n]"
+            "data": ""
           },
           "limit": {
             "data": "10"
           }
         },
-        "body": {
-          "data": "{\n  \"aggregate\": \"users\",\n  \"pipeline\": [\n    {\n      \"$match\": {\n        \"accountType\": \"Mentor\"\n      }\n    },\n    {\n      \"$lookup\": {\n        \"from\": \"profiles\",\n        \"localField\": \"additionalDetails\",\n        \"foreignField\": \"_id\",\n        \"as\": \"profile\"\n      }\n    },\n    {\n      \"$unwind\": {\n        \"path\": \"$profile\",\n        \"preserveNullAndEmptyArrays\": true\n      }\n    }\n  ],\n  \"cursor\": {}\n}\n"
-        },
         "collection": {
-          "data": "users"
+          "data": "profiles"
         },
         "command": {
-          "data": "RAW"
+          "data": "UPDATE"
         },
         "count": {
           "query": {
@@ -50,10 +47,10 @@
             "data": ""
           },
           "projection": {
-            "data": "{\"password\":0}"
+            "data": ""
           },
           "query": {
-            "data": "{\"accountType\":\"Mentor\"}"
+            "data": ""
           },
           "skip": {
             "data": ""
@@ -64,12 +61,12 @@
         },
         "insert": {
           "documents": {
-            "data": ""
+            "data": "[\n\t{\n\t\t\"_id\":{{mentor_profile_id.selectedOptionValue}}\n\t\t\"areaOfInterest\":{{area_of_expertise.selectedOptionValues}}\n\t\t\"description\":{{mentor_descp.text}}\n\t}\n]"
           }
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"aggregate\": \"users\",\n  \"pipeline\": [],\n  \"cursor\": {}\n}\n",
+            "data": "{\n  \"update\": \"profiles\",\n  \"updates\": [{\n    \"q\": {\n\n},\n    \"u\": {\n\t\"description\":{{mentor_descp.text}},\n\t\"areaOfExpertise\":{{area_of_expertise.selectedOptionValues}},\n\t\"imageUrl\":{{mentor_img.text || null}}\n},\n    \"multi\": false,\n  }]\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -81,10 +78,10 @@
             "data": "SINGLE"
           },
           "query": {
-            "data": ""
+            "data": "{\n\n}"
           },
           "update": {
-            "data": ""
+            "data": "{\n\t\"description\":{{mentor_descp.text}},\n\t\"areaOfExpertise\":{{area_of_expertise.selectedOptionValues}},\n\t\"imageUrl\":{{mentor_img.text || null}}\n}"
           }
         }
       },
@@ -98,10 +95,17 @@
       "name": "insight-iq",
       "pluginId": "mongo-plugin"
     },
-    "dynamicBindingPathList": [],
-    "name": "get_user",
+    "dynamicBindingPathList": [
+      {
+        "key": "formData.insert.documents.data"
+      },
+      {
+        "key": "formData.updateMany.update.data"
+      }
+    ],
+    "name": "add_mentor_details",
     "pageId": "Mentor",
-    "runBehaviour": "AUTOMATIC",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "6885fee7144cb85522ef09cd_316568e2-64d0-4491-93e4-c9b609b78fed",
-  "id": "Mentor_get_user",
+  "gitSyncId": "6885fee7144cb85522ef09cd_3294aae4-a1f1-4961-8e4b-6e3da9e401e4",
+  "id": "User_delete_mentor_detail",
   "pluginId": "mongo-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -9,20 +9,17 @@
       "formData": {
         "aggregate": {
           "arrayPipelines": {
-            "data": "[{\"$unwind\": {\n        \"path\": \"$mentorDetails\",\n        \"preserveNullAndEmptyArrays\": true\n      }\n}\n]"
+            "data": ""
           },
           "limit": {
             "data": "10"
           }
         },
-        "body": {
-          "data": "{\n  \"aggregate\": \"users\",\n  \"pipeline\": [\n    {\n      \"$match\": {\n        \"accountType\": \"Mentor\"\n      }\n    },\n    {\n      \"$lookup\": {\n        \"from\": \"profiles\",\n        \"localField\": \"additionalDetails\",\n        \"foreignField\": \"_id\",\n        \"as\": \"profile\"\n      }\n    },\n    {\n      \"$unwind\": {\n        \"path\": \"$profile\",\n        \"preserveNullAndEmptyArrays\": true\n      }\n    }\n  ],\n  \"cursor\": {}\n}\n"
-        },
         "collection": {
-          "data": "users"
+          "data": "profiles"
         },
         "command": {
-          "data": "RAW"
+          "data": "DELETE"
         },
         "count": {
           "query": {
@@ -34,7 +31,7 @@
             "data": "SINGLE"
           },
           "query": {
-            "data": ""
+            "data": "{\"userId\":{{this.params.id}}}"
           }
         },
         "distinct": {
@@ -50,10 +47,10 @@
             "data": ""
           },
           "projection": {
-            "data": "{\"password\":0}"
+            "data": ""
           },
           "query": {
-            "data": "{\"accountType\":\"Mentor\"}"
+            "data": ""
           },
           "skip": {
             "data": ""
@@ -69,7 +66,7 @@
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"aggregate\": \"users\",\n  \"pipeline\": [],\n  \"cursor\": {}\n}\n",
+            "data": "{\n  \"delete\": \"profiles\",\n  \"deletes\": [{\n    \"q\": {\"userId\":{{this.params.id}}},\n    \"limit\": 1,\n  }]\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -98,10 +95,14 @@
       "name": "insight-iq",
       "pluginId": "mongo-plugin"
     },
-    "dynamicBindingPathList": [],
-    "name": "get_user",
-    "pageId": "Mentor",
-    "runBehaviour": "AUTOMATIC",
+    "dynamicBindingPathList": [
+      {
+        "key": "formData.delete.query.data"
+      }
+    ],
+    "name": "delete_mentor_detail",
+    "pageId": "User",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

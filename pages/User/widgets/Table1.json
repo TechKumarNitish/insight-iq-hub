@@ -40,9 +40,10 @@
     "createdAt",
     "__v",
     "additionalDetails",
-    "updatedAt"
+    "updatedAt",
+    "customColumn1"
   ],
-  "columnUpdatedAt": 1753616418878,
+  "columnUpdatedAt": 1753623356261,
   "columnWidthMap": {
     "email": 225
   },
@@ -93,6 +94,12 @@
     },
     {
       "key": "primaryColumns.updatedAt.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn1.borderRadius"
+    },
+    {
+      "key": "primaryColumns.customColumn1.boxShadow"
     }
   ],
   "dynamicPropertyPathList": [
@@ -122,8 +129,8 @@
   "mobileRightColumn": 34,
   "mobileTopRow": 70,
   "needsErrorInfo": false,
-  "originalBottomRow": 83,
-  "originalTopRow": 55,
+  "originalBottomRow": 78,
+  "originalTopRow": 50,
   "parentColumnSpace": 5.984375,
   "parentId": "0",
   "parentRowSpace": 10,
@@ -150,7 +157,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": true,
+      "isVisible": false,
       "label": "__v",
       "notation": "standard",
       "originalId": "__v",
@@ -298,6 +305,44 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "customColumn1": {
+      "alias": "Delete",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonColor": "#ef4444",
+      "buttonLabel": "Delete",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "columnType": "button",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "CENTER",
+      "id": "customColumn1",
+      "index": 9,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Delete",
+      "labelColor": "#FFFFFF",
+      "notation": "standard",
+      "originalId": "customColumn1",
+      "sticky": "right",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "email": {
       "alias": "email",
       "allowCellWrapping": false,
@@ -388,7 +433,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": true,
+      "isVisible": false,
       "label": "image",
       "notation": "standard",
       "originalId": "image",
@@ -422,7 +467,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": true,
+      "isVisible": false,
       "label": "updatedAt",
       "notation": "standard",
       "originalId": "updatedAt",

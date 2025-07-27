@@ -1,12 +1,12 @@
 {
-  "gitSyncId": "6885fee7144cb85522ef09cd_3f11363c-98a8-4d69-8c70-662cbf7bfeda",
+  "gitSyncId": "6885fee7144cb85522ef09cd_194a7488-d369-4297-a358-cdc10d3bfb99",
   "unpublishedPage": {
     "isHidden": false,
     "layouts": [
       {
         "dsl": {
           "backgroundColor": "none",
-          "bottomRow": 990,
+          "bottomRow": 440,
           "canExtend": true,
           "containerStyle": "none",
           "detachFromLayout": true,
@@ -26,7 +26,7 @@
         }
       }
     ],
-    "name": "Mentor",
-    "slug": "mentor"
+    "name": "Home",
+    "slug": "home"
   }
 }

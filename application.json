@@ -19,7 +19,7 @@
   "pages": [
     {
       "id": "Technology",
-      "isDefault": true
+      "isDefault": false
     },
     {
       "id": "Tag",
@@ -32,6 +32,10 @@
     {
       "id": "User",
       "isDefault": false
+    },
+    {
+      "id": "Home",
+      "isDefault": true
     }
   ],
   "unpublishedApplicationDetail": {
