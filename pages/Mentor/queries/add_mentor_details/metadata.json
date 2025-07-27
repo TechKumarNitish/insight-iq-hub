@@ -66,7 +66,7 @@
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"update\": \"profiles\",\n  \"updates\": [{\n    \"q\": {\n\n},\n    \"u\": {\n\t\"description\":{{mentor_descp.text}},\n\t\"areaOfExpertise\":{{area_of_expertise.selectedOptionValues}},\n\t\"imageUrl\":{{mentor_img.text || null}}\n},\n    \"multi\": false,\n  }]\n}\n",
+            "data": "{\n  \"update\": \"profiles\",\n  \"updates\": [{\n    \"q\": {\"_id\": ObjectId({{mentor_profile_id.selectedOptionValue}}) },\n    \"u\": {\n\t\t\"description\":{{mentor_descp.text}},\n\t\t\"areaOfExpertise\":{{area_of_expertise.selectedOptionValues}},\n\t\t\"image\":{{mentor_img.text || null}}\n},\n    \"multi\": false,\n  }]\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -78,10 +78,10 @@
             "data": "SINGLE"
           },
           "query": {
-            "data": "{\n\n}"
+            "data": "{\"_id\": ObjectId({{mentor_profile_id.selectedOptionValue}}) }"
           },
           "update": {
-            "data": "{\n\t\"description\":{{mentor_descp.text}},\n\t\"areaOfExpertise\":{{area_of_expertise.selectedOptionValues}},\n\t\"imageUrl\":{{mentor_img.text || null}}\n}"
+            "data": "{\n\t\t\"description\":{{mentor_descp.text}},\n\t\t\"areaOfExpertise\":{{area_of_expertise.selectedOptionValues}},\n\t\t\"image\":{{mentor_img.text || null}}\n}"
           }
         }
       },
@@ -101,6 +101,9 @@
       },
       {
         "key": "formData.updateMany.update.data"
+      },
+      {
+        "key": "formData.updateMany.query.data"
       }
     ],
     "name": "add_mentor_details",
