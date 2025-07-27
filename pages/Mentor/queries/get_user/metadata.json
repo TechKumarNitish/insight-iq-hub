@@ -15,11 +15,14 @@
             "data": "10"
           }
         },
+        "body": {
+          "data": "{\n  \"aggregate\": \"users\",\n  \"pipeline\": [],\n  \"cursor\": {}\n}\n"
+        },
         "collection": {
           "data": "users"
         },
         "command": {
-          "data": "FIND"
+          "data": "RAW"
         },
         "count": {
           "query": {
@@ -66,7 +69,7 @@
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"find\": \"users\",\n  \"filter\": {\"accountType\":\"Mentor\"},\n  \"limit\": 10,\n  \"batchSize\": 10\n}\n",
+            "data": "{\n  \"aggregate\": \"users\",\n  \"pipeline\": [],\n  \"cursor\": {}\n}\n",
             "status": "SUCCESS"
           }
         },
