@@ -33,9 +33,10 @@
   },
   "columnOrder": [
     "_id",
-    "tag_name"
+    "tag_name",
+    "customColumn1"
   ],
-  "columnUpdatedAt": 1753650763896,
+  "columnUpdatedAt": 1753712531863,
   "columnWidthMap": {
     "_id": 259,
     "name": 257
@@ -66,14 +67,27 @@
     },
     {
       "key": "primaryColumns.tag_name.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn1.borderRadius"
+    },
+    {
+      "key": "primaryColumns.customColumn1.boxShadow"
     }
   ],
   "dynamicPropertyPathList": [
     {
       "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.customColumn1.onClick"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "primaryColumns.customColumn1.onClick"
+    }
+  ],
   "enableClientSideSearch": true,
   "endOfData": false,
   "flexVerticalAlignment": "start",
@@ -129,6 +143,45 @@
       "originalId": "_id",
       "sticky": "",
       "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "customColumn1": {
+      "alias": "delete",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonColor": "#ef4444",
+      "buttonLabel": "Delete",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "columnType": "button",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "CENTER",
+      "id": "customColumn1",
+      "index": 2,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "delete",
+      "labelColor": "#FFFFFF",
+      "notation": "standard",
+      "onClick": "{{update_tech.run().then(() => {\n  delete_tag.run();\n  get_tag.run();\n  showAlert('Deleted successfully!', 'success');\n}).catch(() => {\n  showAlert('Unable to delete!', 'error');\n});}}",
+      "originalId": "customColumn1",
+      "sticky": "right",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},

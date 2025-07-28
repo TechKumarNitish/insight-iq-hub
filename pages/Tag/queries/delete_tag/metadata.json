@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "6885fee7144cb85522ef09cd_3eb9d860-4485-48cc-aa53-3d9753533f01",
-  "id": "Technology_get_technology",
+  "gitSyncId": "6885fee7144cb85522ef09cd_a511ed9a-2894-49e3-b102-b09f1eeb3a1c",
+  "id": "Tag_delete_tag",
   "pluginId": "mongo-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -16,10 +16,10 @@
           }
         },
         "collection": {
-          "data": "technologies"
+          "data": "tags"
         },
         "command": {
-          "data": "FIND"
+          "data": "DELETE"
         },
         "count": {
           "query": {
@@ -31,7 +31,7 @@
             "data": "SINGLE"
           },
           "query": {
-            "data": ""
+            "data": "{\n\t\"_id\":ObjectId({{Table1.triggeredRow._id}})\n}"
           }
         },
         "distinct": {
@@ -44,13 +44,13 @@
         },
         "find": {
           "limit": {
-            "data": "100"
+            "data": ""
           },
           "projection": {
             "data": ""
           },
           "query": {
-            "data": "{}"
+            "data": ""
           },
           "skip": {
             "data": ""
@@ -66,7 +66,7 @@
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"find\": \"technologies\",\n  \"filter\": {},\n  \"limit\": 100,\n  \"batchSize\": 100\n}\n",
+            "data": "{\n  \"delete\": \"tags\",\n  \"deletes\": [{\n    \"q\": {\n\t\"_id\":ObjectId({{Table1.triggeredRow._id}})\n},\n    \"limit\": 1,\n  }]\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -95,9 +95,13 @@
       "name": "insight-iq",
       "pluginId": "mongo-plugin"
     },
-    "dynamicBindingPathList": [],
-    "name": "get_technology",
-    "pageId": "Technology",
+    "dynamicBindingPathList": [
+      {
+        "key": "formData.delete.query.data"
+      }
+    ],
+    "name": "delete_tag",
+    "pageId": "Tag",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }

@@ -4,7 +4,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 104,
+  "bottomRow": 105,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "cachedTableData": {},
   "canFreezeColumn": true,
@@ -35,11 +35,13 @@
     "_id",
     "tech_name",
     "description",
-    "active"
+    "active",
+    "customColumn1"
   ],
-  "columnUpdatedAt": 1753650811453,
+  "columnUpdatedAt": 1753716110208,
   "columnWidthMap": {
     "_id": 97,
+    "description": 275,
     "tag": 228
   },
   "customIsLoading": false,
@@ -74,6 +76,12 @@
     },
     {
       "key": "primaryColumns.active.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn1.borderRadius"
+    },
+    {
+      "key": "primaryColumns.customColumn1.boxShadow"
     }
   ],
   "dynamicPropertyPathList": [
@@ -81,7 +89,11 @@
       "key": "tableData"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "primaryColumns.customColumn1.onClick"
+    }
+  ],
   "enableClientSideSearch": true,
   "endOfData": false,
   "flexVerticalAlignment": "start",
@@ -103,8 +115,8 @@
   "mobileRightColumn": 32,
   "mobileTopRow": 55,
   "needsErrorInfo": false,
-  "originalBottomRow": 104,
-  "originalTopRow": 52,
+  "originalBottomRow": 105,
+  "originalTopRow": 53,
   "parentColumnSpace": 5.984375,
   "parentId": "0",
   "parentRowSpace": 10,
@@ -177,6 +189,45 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "customColumn1": {
+      "alias": "delete",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonColor": "#ef4444",
+      "buttonLabel": "Delete",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "columnType": "button",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "CENTER",
+      "id": "customColumn1",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "delete",
+      "labelColor": "#FFFFFF",
+      "notation": "standard",
+      "onClick": "{{update_mentor_details.run().then(() => {\n  delete_tech.run();\n  ManageTech.getTech();\n  showAlert('Deleted Successfully!', 'success');\n}).catch(() => {\n  showAlert('Unable to delete', 'error');\n});}}",
+      "originalId": "customColumn1",
+      "sticky": "right",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "description": {
       "alias": "description",
       "allowCellWrapping": false,
@@ -234,7 +285,7 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "tech_name",
+      "label": "title",
       "notation": "standard",
       "originalId": "tech_name",
       "sticky": "",
@@ -252,7 +303,7 @@
   "searchKey": "",
   "tableData": "{{ManageTech.getTech.data}}",
   "textSize": "0.875rem",
-  "topRow": 52,
+  "topRow": 53,
   "totalRecordsCount": 0,
   "type": "TABLE_WIDGET_V2",
   "version": 2,

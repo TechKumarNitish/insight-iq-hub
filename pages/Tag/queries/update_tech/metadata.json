@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "6885fee7144cb85522ef09cd_3eb9d860-4485-48cc-aa53-3d9753533f01",
-  "id": "Technology_get_technology",
+  "gitSyncId": "6885fee7144cb85522ef09cd_2f13f504-cf40-4133-ba02-0d607517c0d8",
+  "id": "Tag_update_tech",
   "pluginId": "mongo-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -15,11 +15,14 @@
             "data": "10"
           }
         },
+        "body": {
+          "data": "{\n  \"update\": \"technologies\",\n  \"updates\": [\n    {\n      \"q\": {\n        \"tags\": { \"$in\": [ \"{{Table1.triggeredRow._id}}\" ] }\n      },\n      \"u\": {\n        \"$pull\": {\n          \"tags\": \"{{Table1.triggeredRow._id}}\"\n        }\n      },\n      \"multi\": true\n    }\n  ]\n}\n"
+        },
         "collection": {
           "data": "technologies"
         },
         "command": {
-          "data": "FIND"
+          "data": "RAW"
         },
         "count": {
           "query": {
@@ -44,13 +47,13 @@
         },
         "find": {
           "limit": {
-            "data": "100"
+            "data": ""
           },
           "projection": {
             "data": ""
           },
           "query": {
-            "data": "{}"
+            "data": "{\n\t \"tags\": {{Table1.triggeredRow._id}}\n}"
           },
           "skip": {
             "data": ""
@@ -66,7 +69,7 @@
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"find\": \"technologies\",\n  \"filter\": {},\n  \"limit\": 100,\n  \"batchSize\": 100\n}\n",
+            "data": "{\n  \"update\": \"\",\n  \"updates\": [{\n    \"q\": ,\n    \"u\": ,\n    \"multi\": false,\n  }]\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -75,13 +78,13 @@
         },
         "updateMany": {
           "limit": {
-            "data": "SINGLE"
+            "data": "ALL"
           },
           "query": {
-            "data": ""
+            "data": "{\n  \"tags\": { \"$in\": [ObjectId(\"{{Table1.triggeredRow._id}}\")] }\n}\n"
           },
           "update": {
-            "data": ""
+            "data": "{\n  \"$pull\": {\n    \"tags\": ObjectId(\"{{Table1.triggeredRow._id}}\")\n  }\n}\n"
           }
         }
       },
@@ -95,9 +98,22 @@
       "name": "insight-iq",
       "pluginId": "mongo-plugin"
     },
-    "dynamicBindingPathList": [],
-    "name": "get_technology",
-    "pageId": "Technology",
+    "dynamicBindingPathList": [
+      {
+        "key": "formData.updateMany.query.data"
+      },
+      {
+        "key": "formData.updateMany.update.data"
+      },
+      {
+        "key": "formData.body.data"
+      },
+      {
+        "key": "formData.find.query.data"
+      }
+    ],
+    "name": "update_tech",
+    "pageId": "Tag",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }

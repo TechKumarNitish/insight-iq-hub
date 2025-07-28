@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "6885fee7144cb85522ef09cd_3eb9d860-4485-48cc-aa53-3d9753533f01",
-  "id": "Technology_get_technology",
+  "gitSyncId": "6885fee7144cb85522ef09cd_0881937e-e9bb-4d3c-86de-e64cc6fc212b",
+  "id": "Technology_update_mentor_details",
   "pluginId": "mongo-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -15,11 +15,14 @@
             "data": "10"
           }
         },
+        "body": {
+          "data": "{\n  \"update\": \"profiles\",\n  \"updates\": [\n    {\n      \"q\": {\n        \"areaOfExpertise\": { \"$in\": [ \"{{Table1.triggeredRow._id}}\" ] }\n      },\n      \"u\": {\n        \"$pull\": {\n          \"areaOfExpertise\": \"{{Table1.triggeredRow._id}}\"\n        }\n      },\n      \"multi\": true\n    }\n  ]\n}\n"
+        },
         "collection": {
-          "data": "technologies"
+          "data": ""
         },
         "command": {
-          "data": "FIND"
+          "data": "RAW"
         },
         "count": {
           "query": {
@@ -44,13 +47,13 @@
         },
         "find": {
           "limit": {
-            "data": "100"
+            "data": ""
           },
           "projection": {
             "data": ""
           },
           "query": {
-            "data": "{}"
+            "data": ""
           },
           "skip": {
             "data": ""
@@ -66,7 +69,7 @@
         },
         "misc": {
           "formToNativeQuery": {
-            "data": "{\n  \"find\": \"technologies\",\n  \"filter\": {},\n  \"limit\": 100,\n  \"batchSize\": 100\n}\n",
+            "data": "{\n  \"find\": \"null\",\n  \"limit\": 10,\n  \"batchSize\": 10\n}\n",
             "status": "SUCCESS"
           }
         },
@@ -95,8 +98,12 @@
       "name": "insight-iq",
       "pluginId": "mongo-plugin"
     },
-    "dynamicBindingPathList": [],
-    "name": "get_technology",
+    "dynamicBindingPathList": [
+      {
+        "key": "formData.body.data"
+      }
+    ],
+    "name": "update_mentor_details",
     "pageId": "Technology",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false
