@@ -34,11 +34,12 @@
   "columnOrder": [
     "_id",
     "tech_name",
+    "tags",
     "description",
     "active",
     "customColumn1"
   ],
-  "columnUpdatedAt": 1753716110208,
+  "columnUpdatedAt": 1753717006843,
   "columnWidthMap": {
     "_id": 97,
     "description": 275,
@@ -82,6 +83,9 @@
     },
     {
       "key": "primaryColumns.customColumn1.boxShadow"
+    },
+    {
+      "key": "primaryColumns.tags.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -254,6 +258,40 @@
       "label": "description",
       "notation": "standard",
       "originalId": "description",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "tags": {
+      "alias": "tags",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"tags\"])) : tags })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "tags",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "tags",
+      "notation": "standard",
+      "originalId": "tags",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",
